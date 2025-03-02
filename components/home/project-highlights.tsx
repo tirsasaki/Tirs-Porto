@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Github, ExternalLink } from "lucide-react"
+import { Github, ExternalLink, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { fetchGithubProjects } from "@/lib/github"
 import type { GithubProject } from "@/lib/github"
+import Link from "next/link"
 
 export default function ProjectHighlights() {
   const [projects, setProjects] = useState<GithubProject[]>([])
@@ -109,6 +110,26 @@ export default function ProjectHighlights() {
             </div>
           </motion.div>
         ))}
+      </motion.div>
+
+      {/* View All Projects Button */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+        className="flex justify-center mt-12"
+      >
+        <Button 
+          variant="outline" 
+          size="lg" 
+          className="group border-[#6272a4] hover:bg-[#44475a]/50"
+          asChild
+        >
+          <Link href="/projects">
+            View All Projects
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
+          </Link>
+        </Button>
       </motion.div>
     </section>
   )
