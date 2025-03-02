@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Star, GitFork, Users, Code2 } from "lucide-react"
-import { fetchGithubStats } from "@/lib/github"
 import { useState, useEffect } from "react"
+import { fetchGitHubData } from "@/lib/github-api"
 
 const stats = [
   { label: "Repositories", icon: Code2, color: "#ff79c6" },
@@ -14,12 +14,20 @@ const stats = [
 
 export default function GithubStats() {
   const [githubStats, setGithubStats] = useState<any>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const loadStats = async () => {
-      const data = await fetchGithubStats()
-      setGithubStats(data)
+      try {
+        const data = await fetchGitHubData()
+        setGithubStats(data)
+      } catch (error) {
+        console.error('Error loading GitHub stats:', error)
+      } finally {
+        setIsLoading(false)
+      }
     }
+
     loadStats()
   }, [])
 
@@ -38,7 +46,11 @@ export default function GithubStats() {
             <span className="text-sm text-[#6272a4]">{stat.label}</span>
           </div>
           <p className="text-2xl font-bold" style={{ color: stat.color }}>
-            {githubStats ? githubStats[stat.label.toLowerCase()] : "..."}
+            {isLoading ? (
+              <span className="animate-pulse">...</span>
+            ) : (
+              githubStats?.[stat.label.toLowerCase()] || 0
+            )}
           </p>
         </motion.div>
       ))}

@@ -2,52 +2,95 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
 import { Github, Twitter } from "lucide-react"
-import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function AboutHero() {
+  const socialLinks = [
+    {
+      name: "GitHub",
+      url: "https://github.com/tirsasaki",
+      icon: Github,
+      style: "bg-[#282a36] hover:bg-[#44475a] text-white"
+    },
+    {
+      name: "Twitter",
+      url: "https://twitter.com/tirsasaki",
+      icon: Twitter,
+      style: "bg-[#1DA1F2]/10 hover:bg-[#1DA1F2]/20 text-[#1DA1F2]"
+    }
+  ]
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
+        className="space-y-6"
       >
-        <Badge className="bg-[#ff79c6]/10 text-[#ff79c6] mb-4 hover:bg-[#ff79c6]/20">About Me</Badge>
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#ff79c6] to-[#bd93f9] bg-clip-text text-transparent">
-          Passionate Frontend Developer
-        </h1>
-        <div className="space-y-4 text-[#6272a4]">
-          <p>
-            Hello! I'm Tirsasaki, a frontend developer based in Indonesia. I specialize in building modern web applications with a focus on user experience and performance.
-          </p>
-          <p>
-            My journey in web development started in 2022, and since then, I've been constantly learning and adapting to new technologies. I believe in writing clean, maintainable code and creating intuitive user interfaces.
-          </p>
-          <p>
-            When I'm not coding, you'll find me reading about new technologies, contributing to open-source projects, or enjoying a cup of coffee while solving coding challenges.
-          </p>
-          {/* Social Links */}
-          <div className="flex gap-4 pt-4">
-            <Link 
-              href="https://github.com/tirsasaki" 
-              target="_blank"
-              className="text-[#6272a4] hover:text-[#ff79c6] transition-colors"
-            >
-              <Github className="h-6 w-6" />
-              <span className="sr-only">GitHub</span>
-            </Link>
-            <Link 
-              href="https://twitter.com/tirsasaki" 
-              target="_blank"
-              className="text-[#6272a4] hover:text-[#ff79c6] transition-colors"
-            >
-              <Twitter className="h-6 w-6" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-          </div>
+        <div className="space-y-2">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#ff79c6] to-[#bd93f9] bg-clip-text text-transparent"
+          >
+            Hi, I'm Tirsasaki
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-xl text-[#6272a4]"
+          >
+            Frontend Developer & UI/UX Enthusiast
+          </motion.p>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="prose prose-dracula max-w-none space-y-4 text-[#6272a4]"
+        >
+          <p>
+            👋 Welcome! I'm a passionate frontend developer from Indonesia, focused on creating beautiful and functional web experiences.
+          </p>
+          <p>
+            🚀 With {new Date().getFullYear() - 2018}+ years of experience, I specialize in React, Next.js, and modern web technologies.
+          </p>
+          <p>
+            💻 I love building user-friendly interfaces and solving complex problems with clean, efficient code.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="flex gap-4"
+        >
+          {socialLinks.map((link) => (
+            <Button
+              key={link.name}
+              variant="ghost"
+              size="lg"
+              className={`${link.style} rounded-xl group`}
+              asChild
+            >
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3"
+              >
+                <link.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <span>Follow on {link.name}</span>
+              </a>
+            </Button>
+          ))}
+        </motion.div>
       </motion.div>
 
       <motion.div
