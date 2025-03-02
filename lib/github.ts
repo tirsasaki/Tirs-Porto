@@ -69,7 +69,7 @@ export async function fetchGithubProjects(): Promise<GithubProject[]> {
       homepage: "https://pro-dashboard.demo.com",
       topics: ["next-js", "typescript", "tailwind", "premium"],
       stars: 145,
-      forks: 32,
+      forks: 32,  
       updatedAt: "1 week ago",
       featuredImage: "/projects/pro-dashboard.png",
       isPremium: true,

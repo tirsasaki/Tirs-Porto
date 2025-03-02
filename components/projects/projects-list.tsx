@@ -46,10 +46,10 @@ export default function ProjectsList() {
           className="text-center space-y-4"
         >
           <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#ff79c6] to-[#bd93f9] bg-clip-text text-transparent">
-            Free Template
+            Projects & Templates
           </h2>
           <p className="text-[#6272a4] max-w-2xl mx-auto">
-            A collection of free templates and resources for your next project
+            A collection of my open-source projects and free templates
           </p>
         </motion.div>
 
@@ -59,141 +59,62 @@ export default function ProjectsList() {
           animate="show"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {projects.filter(p => !p.isPremium).map((project) => (
-            <motion.div
-              key={project.id}
-              variants={item}
-              className="group relative bg-[#44475a]/30 rounded-lg overflow-hidden hover:bg-[#44475a]/50 transition-all duration-300"
-            >
-              <div className="aspect-video relative overflow-hidden bg-[#282a36]">
-                <Image
-                  src={project.featuredImage}
-                  alt={project.name}
-                  fill
-                  className="object-cover transform group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-[#282a36]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                  <Button variant="secondary" size="sm" className="text-xs" asChild>
-                    <a href={project.html_url} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-1 h-3 w-3" />
-                      Code
-                    </a>
-                  </Button>
-                  {project.homepage && (
-                    <Button variant="default" size="sm" className="text-xs" asChild>
-                      <a href={project.homepage} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-1 h-3 w-3" />
-                        Demo
+          {/* Filter out premium projects */}
+          {projects
+            .filter(p => !p.isPremium)
+            .map((project) => (
+              <motion.div
+                key={project.id}
+                variants={item}
+                className="group relative bg-[#44475a]/30 rounded-lg overflow-hidden hover:bg-[#44475a]/50 transition-all duration-300"
+              >
+                <div className="aspect-video relative overflow-hidden bg-[#282a36]">
+                  <Image
+                    src={project.featuredImage}
+                    alt={project.name}
+                    fill
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-[#282a36]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                    <Button variant="secondary" size="sm" className="text-xs" asChild>
+                      <a href={project.html_url} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-1 h-3 w-3" />
+                        Code
                       </a>
                     </Button>
-                  )}
-                </div>
-              </div>
-              
-              <div className="p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-bold text-[#f8f8f2]">{project.name}</h3>
-                  <div className="flex items-center text-xs text-[#6272a4]">
-                    <Star className="h-3 w-3 mr-1" />
-                    {project.stars}
+                    {project.homepage && (
+                      <Button variant="default" size="sm" className="text-xs" asChild>
+                        <a href={project.homepage} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-1 h-3 w-3" />
+                          Demo
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
-                <p className="text-[#6272a4] mb-3 text-sm line-clamp-2">{project.description}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.topics.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-[10px] px-2 py-0.5 rounded-full bg-[#6272a4]/20 text-[#bd93f9]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-
-      {/* Premium Templates Section */}
-      <div className="space-y-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center space-y-4"
-        >
-          <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#f1fa8c] to-[#50fa7b] bg-clip-text text-transparent">
-            Premium Template
-          </h2>
-          <p className="text-[#6272a4] max-w-2xl mx-auto">
-            Professional grade templates with advanced features and premium support
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {projects.filter(p => p.isPremium).map((project) => (
-            <motion.div
-              key={project.id}
-              variants={item}
-              className="group relative bg-[#44475a]/30 rounded-lg overflow-hidden hover:bg-[#44475a]/50 transition-all duration-300 border border-[#f1fa8c]/20"
-            >
-              <div className="absolute top-4 right-4 z-10">
-                <span className="px-2 py-1 text-xs rounded-full bg-[#f1fa8c]/20 text-[#f1fa8c]">
-                  Premium
-                </span>
-              </div>
-              <div className="aspect-video relative overflow-hidden bg-[#282a36]">
-                <Image
-                  src={project.featuredImage}
-                  alt={project.name}
-                  fill
-                  className="object-cover transform group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-[#282a36]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                  <Button variant="secondary" size="sm" className="text-xs" asChild>
-                    <a href={project.html_url} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-1 h-3 w-3" />
-                      Buy {project.price}
-                    </a>
-                  </Button>
-                  {project.homepage && (
-                    <Button variant="default" size="sm" className="text-xs" asChild>
-                      <a href={project.homepage} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-1 h-3 w-3" />
-                        Demo
-                      </a>
-                    </Button>
-                  )}
-                </div>
-              </div>
-              
-              <div className="p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-bold text-[#f8f8f2]">{project.name}</h3>
-                  <div className="flex items-center text-xs text-[#6272a4]">
-                    <Star className="h-3 w-3 mr-1" />
-                    {project.stars}
+                
+                <div className="p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-bold text-[#f8f8f2]">{project.name}</h3>
+                    <div className="flex items-center text-xs text-[#6272a4]">
+                      <Star className="h-3 w-3 mr-1" />
+                      {project.stars}
+                    </div>
+                  </div>
+                  <p className="text-[#6272a4] mb-3 text-sm line-clamp-2">{project.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.topics.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-[10px] px-2 py-0.5 rounded-full bg-[#6272a4]/20 text-[#bd93f9]"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <p className="text-[#6272a4] mb-3 text-sm line-clamp-2">{project.description}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.topics.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-[10px] px-2 py-0.5 rounded-full bg-[#6272a4]/20 text-[#bd93f9]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
         </motion.div>
       </div>
     </div>
