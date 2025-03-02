@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 231 15% 18%;    /* #282a36 Dracula background */
+    --foreground: 60 30% 96%;     /* #f8f8f2 Dracula foreground */
+
+    --card: 232 14% 31%;          /* #44475a Dracula current line */
+    --card-foreground: 60 30% 96%; /* #f8f8f2 */
+
+    --popover: 231 15% 18%;       /* #282a36 */
+    --popover-foreground: 60 30% 96%; /* #f8f8f2 */
+
+    --primary: 326 100% 74%;      /* #ff79c6 Dracula pink */
+    --primary-foreground: 60 30% 96%;
+
+    --secondary: 265 89% 78%;     /* #bd93f9 Dracula purple */
+    --secondary-foreground: 60 30% 96%;
+
+    --muted: 232 14% 31%;         /* #44475a */
+    --muted-foreground: 225 27% 70%;
+
+    --accent: 135 94% 65%;        /* #50fa7b Dracula green */
+    --accent-foreground: 60 30% 96%;
+
+    --destructive: 0 63% 31%;     /* #ff5555 Dracula red */
+    --destructive-foreground: 60 30% 96%;
+
+    --border: 232 14% 31%;        /* #44475a */
+    --input: 232 14% 31%;         /* #44475a */
+    --ring: 326 100% 74%;         /* #ff79c6 */
+  }
+
+  .dark {
+    --background: 231 15% 18%;    /* #282a36 Dracula background */
+    --foreground: 60 30% 96%;     /* #f8f8f2 Dracula foreground */
+
+    --card: 232 14% 31%;          /* #44475a Dracula current line */
+    --card-foreground: 60 30% 96%; /* #f8f8f2 */
+
+    --popover: 231 15% 18%;       /* #282a36 */
+    --popover-foreground: 60 30% 96%; /* #f8f8f2 */
+
+    --primary: 326 100% 74%;      /* #ff79c6 Dracula pink */
+    --primary-foreground: 60 30% 96%;
+
+    --secondary: 265 89% 78%;     /* #bd93f9 Dracula purple */
+    --secondary-foreground: 60 30% 96%;
+
+    --muted: 232 14% 31%;         /* #44475a */
+    --muted-foreground: 225 27% 70%;
+
+    --accent: 135 94% 65%;        /* #50fa7b Dracula green */
+    --accent-foreground: 60 30% 96%;
+
+    --destructive: 0 63% 31%;     /* #ff5555 Dracula red */
+    --destructive-foreground: 60 30% 96%;
+
+    --border: 232 14% 31%;        /* #44475a */
+    --input: 232 14% 31%;         /* #44475a */
+    --ring: 326 100% 74%;         /* #ff79c6 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-black min-h-screen;
+  }
+}
+
+.animate-gradient {
+  background-size: 400%;
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.glass-container {
+  @apply backdrop-blur-lg bg-white/10 rounded-xl p-8;
+}
+
+@layer components {
+  /* Link styles */
+  .link-primary {
+    @apply text-[#ff79c6] hover:text-[#ff79c6]/80 transition-colors;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply bg-[#ff79c6] hover:bg-[#ff79c6]/90 text-white transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-[#bd93f9] hover:bg-[#bd93f9]/90 text-white transition-colors;
+  }
+  
+  .btn-outline {
+    @apply border-[#6272a4] hover:bg-[#44475a]/50 text-white transition-colors;
+  }
+  
+  /* Focus states */
+  .focus-ring {
+    @apply focus:ring-2 focus:ring-[#ff79c6] focus:ring-offset-[#282a36] focus:outline-none;
+  }
+}
+
