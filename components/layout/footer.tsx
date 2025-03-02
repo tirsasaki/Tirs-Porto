@@ -79,13 +79,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-8 pt-6 border-t border-[#44475a]/30 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-[#6272a4]">
-            © {new Date().getFullYear()} Develop by <span className="text-[#ff79c6]">Tirsasaki</span>. All rights reserved.
-          </p>
+        <div className="mt-8 pt-6 border-t border-[#44475a]/30 flex flex-col items-center space-y-4">
           <p className="text-xs flex items-center text-[#6272a4]">
-            Made with <Heart className="h-3 w-3 mx-1 text-[#ff5555]" /> using{" "}
-            <span className="text-[#50fa7b] ml-1">Next.js</span>
+            Developed with <Heart className="h-3 w-3 mx-1 text-[#ff5555] animate-pulse-slow" /> by{" "}
+            <span className="text-[#ff79c6] ml-1">Tirsasaki</span>
+          </p>
+          <p className="text-xs text-[#6272a4]">
+            © {new Date().getFullYear()} All rights reserved
           </p>
         </div>
       </div>

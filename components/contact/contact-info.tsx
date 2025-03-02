@@ -7,8 +7,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@tirsasaki.com",
-    link: "mailto:hello@tirsasaki.com"
+    value: "tirsasaki@gmail.com",
+    link: "mailto:tirsasaki@gmail.com"
   },
   {
     icon: MapPin,
