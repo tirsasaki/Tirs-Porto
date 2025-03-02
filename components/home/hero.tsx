@@ -63,7 +63,7 @@ export default function Hero() {
               className="group font-medium bg-[#ff79c6] hover:bg-[#ff79c6]/90" 
               asChild
             >
-              <a href="#projects">
+              <a href="/projects">
                 View Projects
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
               </a>
