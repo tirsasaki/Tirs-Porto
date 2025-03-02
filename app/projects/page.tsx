@@ -1,30 +1,37 @@
-import { Suspense } from "react"
+import { Metadata } from "next"
 import ProjectsList from "@/components/projects/projects-list"
-import ProjectsLoading from "@/components/projects/projects-loading"
 import GithubStats from "@/components/projects/github-stats"
 import { Separator } from "@/components/ui/separator"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Projects | Tirsasaki",
-  description: "Explore my portfolio of projects and GitHub repositories",
+  description: "Explore my portfolio of projects and GitHub contributions",
 }
 
 export default function ProjectsPage() {
   return (
-    <div className="container py-12 animate-fade-in">
-      <h1 className="text-4xl font-bold mb-6">Projects</h1>
-      <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
-        Browse through my latest projects and GitHub repositories. Each project represents a unique challenge and
-        solution I've worked on.
-      </p>
+    <div className="min-h-screen bg-[#282a36]">
+      <div className="container py-16 animate-fade-in">
+        <div className="bg-[#1a1f25] rounded-xl p-6 md:p-8 lg:p-12 shadow-lg relative overflow-hidden">
+          {/* Header */}
+          <div className="max-w-3xl mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#ff79c6] to-[#bd93f9] bg-clip-text text-transparent mb-4">
+              My Projects
+            </h1>
+            <p className="text-lg text-[#6272a4]">
+              A showcase of my work, side projects, and open source contributions. Each project represents a unique challenge and solution.
+            </p>
+          </div>
 
-      <GithubStats />
+          {/* GitHub Stats */}
+          <GithubStats />
+          
+          <Separator className="my-16" />
 
-      <Separator className="my-12" />
-
-      <Suspense fallback={<ProjectsLoading />}>
-        <ProjectsList />
-      </Suspense>
+          {/* Projects List */}
+          <ProjectsList />
+        </div>
+      </div>
     </div>
   )
 }

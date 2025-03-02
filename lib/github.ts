@@ -12,6 +12,8 @@ export interface GithubProject {
   forks: number
   updatedAt: string
   featuredImage: string // Tambahan properti untuk gambar
+  isPremium?: boolean
+  price?: string
 }
 
 export async function fetchGithubProjects(): Promise<GithubProject[]> {
@@ -32,7 +34,8 @@ export async function fetchGithubProjects(): Promise<GithubProject[]> {
       stars: 45,
       forks: 12,
       updatedAt: "2 weeks ago",
-      featuredImage: "/projects/kasa.png"
+      featuredImage: "/projects/kasa.png",
+      isPremium: false
     },
     {
       id: 2,
@@ -58,6 +61,20 @@ export async function fetchGithubProjects(): Promise<GithubProject[]> {
       updatedAt: "3 weeks ago",
       featuredImage: "/projects/portfolio-generator.png"
     },
+    {
+      id: 4,
+      name: "Pro Dashboard",
+      description: "Premium dashboard template with advanced analytics and admin features",
+      html_url: "https://github.com/tirsasaki/pro-dashboard",
+      homepage: "https://pro-dashboard.demo.com",
+      topics: ["next-js", "typescript", "tailwind", "premium"],
+      stars: 145,
+      forks: 32,
+      updatedAt: "1 week ago",
+      featuredImage: "/projects/pro-dashboard.png",
+      isPremium: true,
+      price: "$49"
+    }
   ]
 }
 

@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#282a36]">
-      <div className="px-4 md:px-8 lg:px-16 py-8 md:py-12 animate-fade-in">
-        <div className="bg-gradient-to-b from-[#0d1117]/90 to-[#44475a]/90 rounded-xl p-6 md:p-8 lg:p-12 shadow-lg shadow-purple-500/5 relative overflow-hidden backdrop-blur-xl backdrop-saturate-150">
+      <div className="container py-16 animate-fade-in">
+        <div className="bg-[#1a1f25] rounded-xl p-6 md:p-8 lg:p-12 shadow-lg relative overflow-hidden">
           <AboutHero />
           <Separator className="my-16" />
           <Skills />

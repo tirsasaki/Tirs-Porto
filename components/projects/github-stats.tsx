@@ -1,70 +1,47 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Code, GitFork, Github, Star } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { Star, GitFork, Users, Code2 } from "lucide-react"
+import { fetchGithubStats } from "@/lib/github"
+import { useState, useEffect } from "react"
+
+const stats = [
+  { label: "Repositories", icon: Code2, color: "#ff79c6" },
+  { label: "Stars", icon: Star, color: "#f1fa8c" },
+  { label: "Forks", icon: GitFork, color: "#50fa7b" },
+  { label: "Contributions", icon: Users, color: "#bd93f9" },
+]
 
 export default function GithubStats() {
-  const [mounted, setMounted] = useState(false)
+  const [githubStats, setGithubStats] = useState<any>(null)
 
   useEffect(() => {
-    setMounted(true)
+    const loadStats = async () => {
+      const data = await fetchGithubStats()
+      setGithubStats(data)
+    }
+    loadStats()
   }, [])
 
-  if (!mounted) return null
-
-  const stats = [
-    {
-      label: "Repositories",
-      value: "40+",
-      icon: <Github className="h-5 w-5 text-primary" />,
-      delay: 0,
-    },
-    {
-      label: "Stars",
-      value: "200+",
-      icon: <Star className="h-5 w-5 text-primary" />,
-      delay: 0.1,
-    },
-    {
-      label: "Forks",
-      value: "50+",
-      icon: <GitFork className="h-5 w-5 text-primary" />,
-      delay: 0.2,
-    },
-    {
-      label: "Contributions",
-      value: "500+",
-      icon: <Code className="h-5 w-5 text-primary" />,
-      delay: 0.3,
-    },
-  ]
-
   return (
-    <div className="py-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: stat.delay }}
-          >
-            <Card className="border border-border/50 bg-secondary/20 hover:bg-secondary/30 transition-colors">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-4">
-                  {stat.icon}
-                  <div>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
-                    <p className="text-3xl font-bold">{stat.value}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {stats.map((stat, index) => (
+        <motion.div
+          key={stat.label}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1 }}
+          className="bg-[#44475a]/20 backdrop-blur-sm rounded-xl p-4 hover:bg-[#44475a]/30 transition-all"
+        >
+          <div className="flex items-center gap-3 mb-2">
+            <stat.icon className="w-5 h-5" style={{ color: stat.color }} />
+            <span className="text-sm text-[#6272a4]">{stat.label}</span>
+          </div>
+          <p className="text-2xl font-bold" style={{ color: stat.color }}>
+            {githubStats ? githubStats[stat.label.toLowerCase()] : "..."}
+          </p>
+        </motion.div>
+      ))}
     </div>
   )
 }
