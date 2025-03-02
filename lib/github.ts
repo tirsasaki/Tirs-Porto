@@ -49,32 +49,20 @@ export async function fetchGithubProjects(): Promise<GithubProject[]> {
       updatedAt: "1 month ago",
       featuredImage: "/projects/luxurytirs.png"
     },
-    {
-      id: 3,
-      name: "Portfolio Generator",
-      description: "A tool that helps developers create beautiful portfolio websites quickly.",
-      html_url: "https://github.com/tirsasaki/portfolio-generator",
-      homepage: "https://portfolio-gen.tirsasaki.com",
-      topics: ["vue-js", "node-js", "mongodb", "express"],
-      stars: 78,
-      forks: 23,
-      updatedAt: "3 weeks ago",
-      featuredImage: "/projects/portfolio-generator.png"
-    },
-    {
-      id: 4,
-      name: "Pro Dashboard",
-      description: "Premium dashboard template with advanced analytics and admin features",
-      html_url: "https://github.com/tirsasaki/pro-dashboard",
-      homepage: "https://pro-dashboard.demo.com",
-      topics: ["next-js", "typescript", "tailwind", "premium"],
-      stars: 145,
-      forks: 32,  
-      updatedAt: "1 week ago",
-      featuredImage: "/projects/pro-dashboard.png",
-      isPremium: true,
-      price: "$49"
-    }
+    // {
+    //   id: 4,
+    //   name: "Pro Dashboard",
+    //   description: "Premium dashboard template with advanced analytics and admin features",
+    //   html_url: "https://github.com/tirsasaki/pro-dashboard",
+    //   homepage: "https://pro-dashboard.demo.com",
+    //   topics: ["next-js", "typescript", "tailwind", "premium"],
+    //   stars: 145,
+    //   forks: 32,  
+    //   updatedAt: "1 week ago",
+    //   featuredImage: "/projects/pro-dashboard.png",
+    //   isPremium: true,
+    //   price: "$49"
+    // }
   ]
 }
 
