@@ -12,7 +12,6 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-[#282a36]">
       <div className="container py-16 animate-fade-in">
-        <div className="bg-[#1a1f25] rounded-xl p-6 md:p-8 lg:p-12 shadow-lg relative overflow-hidden">
           {/* Header */}
           <div className="max-w-3xl mb-12">
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#ff79c6] to-[#bd93f9] bg-clip-text text-transparent mb-4">
@@ -30,7 +29,6 @@ export default function ProjectsPage() {
 
           {/* Projects List */}
           <ProjectsList />
-        </div>
       </div>
     </div>
   )

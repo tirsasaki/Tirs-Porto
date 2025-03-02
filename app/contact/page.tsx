@@ -11,7 +11,6 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-[#282a36]">
       <div className="container max-w-3xl py-16 animate-fade-in">
-        <div className="bg-[#1a1f25] rounded-xl p-6 md:p-8 lg:p-12 shadow-lg relative overflow-hidden">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-[#f8f8f2] mb-4">
               Let's Talk
@@ -24,7 +23,6 @@ export default function ContactPage() {
           <div className="mt-12 pt-12 border-t border-[#44475a]/30">
             <SocialLinks />
           </div>
-        </div>
       </div>
     </div>
   )
