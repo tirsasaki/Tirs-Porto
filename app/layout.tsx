@@ -12,7 +12,11 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Tirsasaki | Portfolio",
   description: "Personal portfolio website showcasing projects and skills",
-    generator: 'v0.dev'
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" }
+    ]
+  }
 }
 
 export default function RootLayout({
