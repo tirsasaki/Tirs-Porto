@@ -158,7 +158,7 @@ export default function ProjectsList() {
                   <Button variant="secondary" size="sm" className="text-xs" asChild>
                     <a href={project.html_url} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-1 h-3 w-3" />
-                      Code
+                      Buy {project.price}
                     </a>
                   </Button>
                   {project.homepage && (
