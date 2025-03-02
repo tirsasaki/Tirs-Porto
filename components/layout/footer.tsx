@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Github, Linkedin, Twitter, Mail, Heart, Code2 } from "lucide-react"
+import { Github, Linkedin, Twitter, Mail, Heart, Code2, Coffee } from "lucide-react"
 
 const socialLinks = [
   {
@@ -19,7 +19,7 @@ const socialLinks = [
   },
   {
     name: "Email",
-    href: "mailto:hello@tirsasaki.com",
+    href: "mailto:tirsasaki@gmail.com",
     icon: Mail,
   },
 ]
@@ -30,7 +30,7 @@ export default function Footer() {
       <div className="container py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand */}
-          <div className="space-y-3">
+          <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
               <Code2 className="h-6 w-6 text-primary animate-pulse-slow" />
               <span className="text-lg font-bold bg-gradient-to-r from-[#ff79c6] to-[#bd93f9] bg-clip-text text-transparent">
@@ -40,6 +40,15 @@ export default function Footer() {
             <p className="text-sm text-[#6272a4]">
               Building digital experiences with passion and precision
             </p>
+            <a
+              href="https://ko-fi.com/tirsasaki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-[#6272a4] hover:text-[#ff79c6] transition-colors"
+            >
+              <Coffee className="h-4 w-4" />
+              <span>Support my work on Ko-fi</span>
+            </a>
           </div>
 
           {/* Quick Links */}

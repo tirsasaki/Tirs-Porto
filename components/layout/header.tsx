@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, Code2 } from "lucide-react"
+import { Menu, X, Code2, Coffee } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -52,6 +53,26 @@ export default function Header() {
           ))}
         </nav>
 
+        {/* Ko-fi Button - Right */}
+        <div className="md:absolute md:right-4">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="hidden md:flex items-center gap-2 text-[#6272a4] hover:text-[#ff79c6] transition-colors"
+            asChild
+          >
+            <a
+              href="https://ko-fi.com/tirsasaki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              <Coffee className="h-4 w-4" />
+              <span className="text-sm">Buy me a coffee</span>
+            </a>
+          </Button>
+        </div>
+
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -82,6 +103,18 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            
+            {/* Ko-fi Button in Mobile Menu */}
+            <a
+              href="https://ko-fi.com/tirsasaki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-medium text-[#6272a4] hover:text-[#ff79c6] transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <Coffee className="h-4 w-4" />
+              Buy me a coffee
+            </a>
           </nav>
         </div>
       )}
