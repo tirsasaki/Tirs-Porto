@@ -39,15 +39,15 @@ export async function fetchGithubProjects(): Promise<GithubProject[]> {
     },
     {
       id: 2,
-      name: "Task Management App",
-      description: "A collaborative task management application with real-time updates.",
-      html_url: "https://github.com/tirsasaki/task-management",
-      homepage: "https://tasks.tirsasaki.com",
-      topics: ["react", "firebase", "redux", "material-ui"],
+      name: "Luxury Tirs",
+      description: "A modern and elegant personal branding website built with Next.js 14 and styled-components, featuring stunning animations and a responsive design.",
+      html_url: "https://github.com/tirsasaki/Luxury-Tirs",
+      homepage: "https://luxurytirs.netlify.app",
+      topics: ["next-js", "tailwind-css"],
       stars: 32,
       forks: 8,
       updatedAt: "1 month ago",
-      featuredImage: "/projects/task-management.png"
+      featuredImage: "/projects/luxurytirs.png"
     },
     {
       id: 3,
